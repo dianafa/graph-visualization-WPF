@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "falkowska", "falkowska\falkowska.csproj", "{6F8D49DE-F88D-47CC-A2D2-FC249E909AAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "Graph\Graph.csproj", "{ECA7EC1E-B982-4B4C-B197-970D0872E788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphLibrary", "GraphLibrary\GraphLibrary.csproj", "{79AAFA4D-8005-4A1A-B573-55BF1FDBAE11}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F8D49DE-F88D-47CC-A2D2-FC249E909AAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F8D49DE-F88D-47CC-A2D2-FC249E909AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F8D49DE-F88D-47CC-A2D2-FC249E909AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F8D49DE-F88D-47CC-A2D2-FC249E909AAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECA7EC1E-B982-4B4C-B197-970D0872E788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECA7EC1E-B982-4B4C-B197-970D0872E788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECA7EC1E-B982-4B4C-B197-970D0872E788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECA7EC1E-B982-4B4C-B197-970D0872E788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79AAFA4D-8005-4A1A-B573-55BF1FDBAE11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79AAFA4D-8005-4A1A-B573-55BF1FDBAE11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79AAFA4D-8005-4A1A-B573-55BF1FDBAE11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79AAFA4D-8005-4A1A-B573-55BF1FDBAE11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
