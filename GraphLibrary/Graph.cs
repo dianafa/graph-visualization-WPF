@@ -59,7 +59,7 @@ namespace GraphLibrary
             return node.arcsOut;
         }
 
-        public static IEnumerable<Node<T>> DFS( this Graph<T> graph, Node<T> start)
+        public static IEnumerable<Node<T>> DFS(Graph<T> graph, Node<T> start)
         {
             var visited = new HashSet<Node<T>>();
             var stack = new Stack<Node<T>>();
