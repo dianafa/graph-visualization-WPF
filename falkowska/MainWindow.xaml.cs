@@ -17,14 +17,18 @@ namespace falkowska
 {
     ///trzeba przeciazyc operator castowania
     ///zamiast >> i << uzywaj .AddArc(). i zawsze z lewego do prawego bedzie
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        int d = 5;
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void pnlMainGrid_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("You clicked me at " + e.GetPosition(this).ToString());
+            MessageBox.Show("Lista nodow :d: " + d);
         }
     }
 }
