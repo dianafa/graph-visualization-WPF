@@ -7,7 +7,7 @@
     <ProjectGuid>{ECA7EC1E-B982-4B4C-B197-970D0872E788}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Graph</RootNamespace>
+    <RootNamespace>CityGraph</RootNamespace>
     <AssemblyName>Graph</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -41,6 +41,12 @@
   <ItemGroup>
     <Compile Include="City.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GraphLibrary\GraphLibrary.csproj">
+      <Project>{79aafa4d-8005-4a1a-b573-55bf1fdbae11}</Project>
+      <Name>GraphLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

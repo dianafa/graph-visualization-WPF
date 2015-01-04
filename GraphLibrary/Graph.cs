@@ -8,8 +8,8 @@ namespace GraphLibrary
 {
     public class Graph<T> : IEnumerable<Node<T>>
     {
-        int nodeCount;
-        int arcCount;
+        int nodeCount = 0;
+        int arcCount = 0;
         Dictionary<string, Node<T>> nodes = new Dictionary<string, Node<T>>();
 
         public Node<T> this[string index]
@@ -26,8 +26,13 @@ namespace GraphLibrary
 
         public void AddNode(Node<T> node)
         {
+            //TODO: opakuj go w klase node i dodaj. CHYBA INTERFEJS BY SIE PRZYDAL
+            Node<T> graphNode = new Node<T>();
+           // graphNode.name = node.ToString;
+            //graphNode.type = node.GetType;
             Console.WriteLine("dodaje noda: " + node.name);
             nodes.Add(node.name ,node);
+            nodeCount++;
         }
 
         //Implementation of IEnumberable interface
@@ -59,7 +64,7 @@ namespace GraphLibrary
             return node.arcsOut;
         }
 
-        public static IEnumerable<Node<T>> DFS( this Graph<T> graph, Node<T> start)
+        public static IEnumerable<Node<T>> DFS(Graph<T> graph, Node<T> start)
         {
             var visited = new HashSet<Node<T>>();
             var stack = new Stack<Node<T>>();

@@ -1,16 +1,24 @@
-﻿using System;
+﻿using GraphLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Graph
+namespace CityGraph
 {
-    public class City
+    public class City : Node<City>
     {
-        string name;
+        //string name;
         string county;
         string population;
+
+        public City(string name, string county, string population)
+        {
+            this.name = name;
+            this.county = county;
+            this.population = population;
+        }
     }
 
 }

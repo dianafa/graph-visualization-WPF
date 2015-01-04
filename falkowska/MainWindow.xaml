@@ -2,9 +2,14 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
-    <Grid Name="pnlMainGrid" MouseUp="pnlMainGrid_MouseUp" Background="LightBlue">
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="40">
-                        Hello, DIANA!
-        </TextBlock>
-    </Grid>
+    <StackPanel Margin="10" Name="pnlMainGrid" MouseUp="pnlMainGrid_MouseUp" Background="LightBlue">
+        <Label FontWeight="Bold">Choose algorithm</Label>
+        <RadioButton GroupName="sex">DFS</RadioButton>
+        <RadioButton GroupName="sex">BFS</RadioButton>
+        <RadioButton GroupName="sex" IsChecked="True">Not sure</RadioButton>
+        <RadioButton GroupName="sex" HorizontalAlignment="Right" Width="497">Not sure</RadioButton>
+
+        <Button>Button 1</Button>
+        <Button Click="AddNode">Add node</Button>
+    </StackPanel>
 </Window>

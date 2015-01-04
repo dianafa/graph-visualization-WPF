@@ -22,6 +22,8 @@ namespace GraphLibrary
             //destination.arcsOut.AddLast(this);
             arcsOut.AddLast(destination);
         }
+
+        //NADPISAC TOSTRING!!!
     }
 
 

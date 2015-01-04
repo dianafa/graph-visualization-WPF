@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "falkowska", "falkowska\falkowska.csproj", "{6F8D49DE-F88D-47CC-A2D2-FC249E909AAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "Graph\Graph.csproj", "{ECA7EC1E-B982-4B4C-B197-970D0872E788}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityGraph", "Graph\CityGraph.csproj", "{ECA7EC1E-B982-4B4C-B197-970D0872E788}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphLibrary", "GraphLibrary\GraphLibrary.csproj", "{79AAFA4D-8005-4A1A-B573-55BF1FDBAE11}"
 EndProject

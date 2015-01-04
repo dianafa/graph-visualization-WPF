@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CityGraph;
+using GraphLibrary;
 
 namespace falkowska
 {
@@ -29,6 +31,14 @@ namespace falkowska
         {
             MessageBox.Show("You clicked me at " + e.GetPosition(this).ToString());
             MessageBox.Show("Lista nodow :d: " + d);
+        }
+        private void AddNode(object sender, RoutedEventArgs e)
+        {
+            Graph<City> cityGraph = new Graph<City>();
+            MessageBox.Show("Dodajesz noda!");
+            //cityGraph["Poznan"] = new City("Poznan", "wielkopolskie", "547tys.");
+            cityGraph.AddNode(new City("Poznan", "wielkopolskie", "547tys."));
+            //cityGraph.AddNode(Node<City> node)
         }
     }
 }
