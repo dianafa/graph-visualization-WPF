@@ -8,9 +8,9 @@ namespace GraphLibrary
 {
     public class Graph<T> : IEnumerable<Node<T>>
     {
-        int nodeCount = 0;
+        //public int nodeCount = 0; niepotrzebne, bo nodes.Count
         //int arcCount = 0;
-        Dictionary<string, Node<T>> nodes = new Dictionary<string, Node<T>>();
+        public Dictionary<string, Node<T>> nodes = new Dictionary<string, Node<T>>();
 
         public Node<T> this[string index]
         {
@@ -32,7 +32,6 @@ namespace GraphLibrary
             graphNode.type = node.GetType();
             Console.WriteLine("dodaje noda: " + node.name);
             nodes.Add(node.name, graphNode);
-            nodeCount++;
         }
 
         //Implementation of IEnumberable interface

@@ -40,6 +40,8 @@ namespace falkowska
             MessageBox.Show(" cityGraph[Poznan].name: " + cityGraph["Poznan"].name);
             //cityGraph["Poznan"] = new City("Poznan", "wielkopolskie", "547tys.");
             cityGraph.AddNode(new City("Krakow", "wielkopolskie", "647tys."));
+            MessageBox.Show("cityGraph.nodeCount: "+ cityGraph.nodeCount );
+            MessageBox.Show("cityGraph.nodeCount: " + cityGraph.nodes.Count);
             //cityGraph.AddNode(Node<City> node)
         }
     }
