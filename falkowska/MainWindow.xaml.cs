@@ -21,10 +21,13 @@ namespace falkowska
     ///zamiast >> i << uzywaj .AddArc(). i zawsze z lewego do prawego bedzie
     public partial class MainWindow : Window
     {
+        Graph<City> cityGraph;
         int d = 5;
         public MainWindow()
         {
             InitializeComponent();
+            cityGraph = new Graph<City>();
+            cityGraph["Poznan"] = new City("Poznan", "wielkopolskie", "547tys.");
         }
 
         private void pnlMainGrid_MouseUp(object sender, MouseButtonEventArgs e)
@@ -34,10 +37,9 @@ namespace falkowska
         }
         private void AddNode(object sender, RoutedEventArgs e)
         {
-            Graph<City> cityGraph = new Graph<City>();
-            MessageBox.Show("Dodajesz noda!");
+            MessageBox.Show(" cityGraph[Poznan].name: " + cityGraph["Poznan"].name);
             //cityGraph["Poznan"] = new City("Poznan", "wielkopolskie", "547tys.");
-            cityGraph.AddNode(new City("Poznan", "wielkopolskie", "547tys."));
+            cityGraph.AddNode(new City("Krakow", "wielkopolskie", "647tys."));
             //cityGraph.AddNode(Node<City> node)
         }
     }

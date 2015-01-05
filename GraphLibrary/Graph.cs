@@ -9,7 +9,7 @@ namespace GraphLibrary
     public class Graph<T> : IEnumerable<Node<T>>
     {
         int nodeCount = 0;
-        int arcCount = 0;
+        //int arcCount = 0;
         Dictionary<string, Node<T>> nodes = new Dictionary<string, Node<T>>();
 
         public Node<T> this[string index]
@@ -28,10 +28,10 @@ namespace GraphLibrary
         {
             //TODO: opakuj go w klase node i dodaj. CHYBA INTERFEJS BY SIE PRZYDAL
             Node<T> graphNode = new Node<T>();
-           // graphNode.name = node.ToString;
-            //graphNode.type = node.GetType;
+            graphNode.name = node.name; //czy toString nadpisac?
+            graphNode.type = node.GetType();
             Console.WriteLine("dodaje noda: " + node.name);
-            nodes.Add(node.name ,node);
+            nodes.Add(node.name, graphNode);
             nodeCount++;
         }
 

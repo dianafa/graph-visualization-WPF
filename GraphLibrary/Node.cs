@@ -14,7 +14,7 @@ namespace GraphLibrary
     public class Node<T> 
     {
         public string name;
-        public string type;
+        public Type type;
         public LinkedList<Node<T>> arcsOut;
 
         public void AddArc(Node<T> destination)
