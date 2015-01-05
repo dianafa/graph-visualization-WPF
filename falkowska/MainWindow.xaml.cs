@@ -22,25 +22,24 @@ namespace falkowska
     public partial class MainWindow : Window
     {
         Graph<City> cityGraph;
-        int d = 5;
         public MainWindow()
         {
             InitializeComponent();
+            //this.DataContext = this;
             cityGraph = new Graph<City>();
             cityGraph["Poznan"] = new City("Poznan", "wielkopolskie", "547tys.");
         }
 
-        private void pnlMainGrid_MouseUp(object sender, MouseButtonEventArgs e)
+        private void MainGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("You clicked me at " + e.GetPosition(this).ToString());
-            MessageBox.Show("Lista nodow :d: " + d);
+            MessageBox.Show("Ile nodow: " + cityGraph.nodes.Count);
         }
         private void AddNode(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(" cityGraph[Poznan].name: " + cityGraph["Poznan"].name);
             //cityGraph["Poznan"] = new City("Poznan", "wielkopolskie", "547tys.");
             cityGraph.AddNode(new City("Krakow", "wielkopolskie", "647tys."));
-            MessageBox.Show("cityGraph.nodeCount: "+ cityGraph.nodeCount );
             MessageBox.Show("cityGraph.nodeCount: " + cityGraph.nodes.Count);
             //cityGraph.AddNode(Node<City> node)
         }
