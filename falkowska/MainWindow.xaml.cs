@@ -21,7 +21,7 @@ namespace falkowska
     ///zamiast >> i << uzywaj .AddArc(). i zawsze z lewego do prawego bedzie
     public partial class MainWindow : Window
     {
-        Graph<City> cityGraph;
+        public Graph<City> cityGraph;
         public MainWindow()
         {
             InitializeComponent();
@@ -33,10 +33,14 @@ namespace falkowska
             lbNodes.ItemsSource = cityGraph.nodes;
         }
 
+        public Graph<City> getGraph() 
+        {
+            return this.cityGraph;
+        }
+
         private void MainGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
             //MessageBox.Show("You clicked me at " + e.GetPosition(this).ToString());
-            //MessageBox.Show("cityGraph.nodeCount: " + cityGraph.nodes.Count);
         }
         private void AddNode(object sender, RoutedEventArgs e)
         {

@@ -22,6 +22,22 @@ namespace falkowska
         public AddArcWindow()
         {
             InitializeComponent();
+
+            MainWindow bigWindow = new MainWindow();
+            lbDestNode.ItemsSource = bigWindow.getGraph().nodes;
+            lbSrcNode.ItemsSource = bigWindow.getGraph().nodes;
+        }
+
+        private void SaveArc(object sender, RoutedEventArgs e)
+        {
+            if (lbSrcNode.SelectedItem == lbDestNode.SelectedItem)
+            {
+                MessageBox.Show("Cannot add arc from " + lbSrcNode.SelectedItem + " to " + lbDestNode.SelectedItem + "!");
+            }
+            else
+            {
+                MessageBox.Show("Dodaje luk z " + lbSrcNode.SelectedItem + " do " + lbDestNode.SelectedItem);
+            }
         }
     }
 }
