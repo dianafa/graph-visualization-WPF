@@ -23,7 +23,10 @@ namespace GraphLibrary
             arcsOut.AddLast(destination);
         }
 
-        //NADPISAC TOSTRING!!!
+        public override string ToString()
+        {
+            return this.name;
+        }
     }
 
 

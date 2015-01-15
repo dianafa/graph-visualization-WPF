@@ -22,13 +22,21 @@ namespace falkowska
     public partial class MainWindow : Window
     {
         Graph<City> cityGraph;
+        public List<String> lista;
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = this;
             cityGraph = new Graph<City>();
             cityGraph["Poznan"] = new City("Poznan", "wielkopolskie", "547tys.");
-            lbNodes.ItemsSource = cityGraph;
+            cityGraph.AddNode(new City("Krakow", "wielkopolskie", "647tys."));
+            MessageBox.Show("cityGraph.nodes[0]: " + cityGraph.nodes["Poznan"]);
+            lbNodes.ItemsSource = cityGraph.nodes;
+           
+            lista = new List<String>();
+            lista.Add("diana");
+            lista.Add("pies");
+            //lbNodes.ItemsSource = lista;
 
         }
 
@@ -41,9 +49,9 @@ namespace falkowska
         {
             MessageBox.Show(" cityGraph[Poznan].name: " + cityGraph["Poznan"].name);
             cityGraph["Bydgoszcz"] = new City("Bydgoszcz", "kujawsko-pomorskie", "297tys.");
-            cityGraph.AddNode(new City("Krakow", "wielkopolskie", "647tys."));
             MessageBox.Show("cityGraph.nodeCount: " + cityGraph.nodes.Count);
-            //cityGraph.AddNode(Node<City> node)
+            lbNodes.ItemsSource = null;
+            lbNodes.ItemsSource = cityGraph.nodes;
         }
 
         private void EditNode(object sender, RoutedEventArgs e)

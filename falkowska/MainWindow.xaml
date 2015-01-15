@@ -35,7 +35,7 @@
         <Border Grid.Column="0" Grid.Row="1" Height="35" Padding="5" Background="#4E87D4">
             <Label VerticalAlignment="Center" Foreground="White">Nodes</Label>
         </Border>
-        <ListBox Name="lbNodes" DisplayMemberPath="name" Grid.Column="0" Grid.Row="2" >
+        <ListBox Name="lbNodes" DisplayMemberPath="Value" Grid.Column="0" Grid.Row="2">
         </ListBox>
     </Grid>
 </Window>
