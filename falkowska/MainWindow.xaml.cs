@@ -56,5 +56,23 @@ namespace falkowska
         {
             MessageBox.Show("Czy na pewno chcesz usunac: " + lbNodes.SelectedItem + "?");
         }
+
+        private void RunAlgorithm(object sender, RoutedEventArgs e)
+        {
+            string alg = "żaden";
+            if (radioDFS.IsChecked == true)
+            {
+                alg = "DFS";
+                MessageBox.Show("Uruchamiasz algorytm: " + alg);
+                IEnumerable<Node<City>> wynik = cityGraph.DFS(cityGraph.nodes["Poznan"]);
+                MessageBox.Show("Wynik: " + wynik);
+            }
+            if (radioBFS.IsChecked == true)
+            {
+                alg = "BFS";
+                MessageBox.Show("Uruchamiasz algorytm: " + alg);
+            }
+            
+        }
     }
 }

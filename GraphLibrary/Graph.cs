@@ -63,7 +63,7 @@ namespace GraphLibrary
             return node.arcsOut;
         }
 
-        public static IEnumerable<Node<T>> DFS(Graph<T> graph, Node<T> start)
+        public IEnumerable<Node<T>> DFS(Node<T> start)
         {
             var visited = new HashSet<Node<T>>();
             var stack = new Stack<Node<T>>();
@@ -79,7 +79,7 @@ namespace GraphLibrary
 
                 yield return current;
 
-                var neighbours = graph.GetNeighbours(current).Where(n => !visited.Contains(n));
+                var neighbours = this.GetNeighbours(current).Where(n => !visited.Contains(n));
 
                 foreach (var neighbour in neighbours.Reverse())
                     stack.Push(neighbour);

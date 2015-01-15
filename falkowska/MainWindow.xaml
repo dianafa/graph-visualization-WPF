@@ -10,34 +10,35 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="91*"/>
+            <RowDefinition Height="75*"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition />
+            <RowDefinition Height="166*" />
             <RowDefinition Height="Auto"/>
-            <RowDefinition />
+            <RowDefinition Height="166*" />
             <RowDefinition Height="Auto"/>
-            <RowDefinition />
+            <RowDefinition Height="167*" />
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Label  Grid.Column="0" Grid.Row="0" FontWeight="Bold">Choose algorithm</Label>
-        <RadioButton Grid.Column="0" Grid.Row="0" GroupName="sex" Margin="0,22,58,90">DFS</RadioButton>
-        <RadioButton Grid.Column="0" Grid.Row="0" GroupName="sex" Content="BFS" Margin="0,38,10,80"/>
-        <RadioButton Grid.Column="0" Grid.Row="0" GroupName="sex" IsChecked="True" Margin="0,56,10,63">Not sure</RadioButton>
+        <Label  Grid.Column="0" Grid.Row="0" FontWeight="Bold" Grid.RowSpan="2">
+            <Button Click="RunAlgorithm" Width="175" Height="25" HorizontalAlignment="Left" Content="Run algorithm" RenderTransformOrigin="0.463,3.2"/>
+        </Label>
+        <RadioButton Name="radioDFS" Grid.Column="0" Grid.Row="0" GroupName="alg" Margin="0,22,58,15">DFS</RadioButton>
+        <RadioButton Name="radioBFS" Grid.Column="0" Grid.Row="0" GroupName="alg" Content="BFS" Margin="0,38,10,5"/>
+        <RadioButton Name="notSure" Grid.Column="0" Grid.Row="0" GroupName="alg" IsChecked="True" Margin="0,56,10,63" Grid.RowSpan="2">Not sure</RadioButton>
 
-        <TextBlock Grid.Column="2" ><Run Language="pl-pl" Text=""/><LineBreak/><Run Text=" "/></TextBlock>
+        <Button Click="AddNode" Grid.Column="0" Grid.Row="6" Margin="0,81,0,61" Width="175" Height="25" HorizontalAlignment="Left" Grid.RowSpan="2">Add node</Button>
+        <Button Click="EditNode" Grid.Column="0" Grid.Row="4" Margin="0,22,0,119" Width="175" Height="25" HorizontalAlignment="Left" Grid.RowSpan="2">Edit node</Button>
+        <Button Click="RemoveNode" Grid.Column="0" Grid.Row="4" Margin="0,56,0,85" Width="175" Height="25" HorizontalAlignment="Left" Grid.RowSpan="2">Remove node</Button>
 
-        <Button Click="AddNode" Grid.Column="0" Grid.Row="6" Margin="0,81,0,61" Width="175" Height="25" HorizontalAlignment="Left">Add node</Button>
-        <Button Click="EditNode" Grid.Column="0" Grid.Row="4" Margin="0,5,0,102" Width="150" Height="25" HorizontalAlignment="Left">Edit node</Button>
-        <Button Click="RemoveNode" Grid.Column="0" Grid.Row="4" Margin="0,35,0,64" Width="150" Height="25" HorizontalAlignment="Left">Remove node</Button>
-
-        <Border Grid.Column="0" Grid.Row="1" Height="35" Padding="5" Background="#4E87D4">
+        <Border Grid.Column="0" Grid.Row="2" Height="35" Padding="5" Background="#4E87D4">
             <Label VerticalAlignment="Center" Foreground="White">Nodes</Label>
         </Border>
-        <ListBox Name="lbNodes" DisplayMemberPath="Value" Grid.Column="0" Grid.Row="2">
+        <ListBox Name="lbNodes" DisplayMemberPath="Value" Grid.Column="0" Grid.Row="3">
         </ListBox>
-        <TextBox Name="NameInput" Height="20" Margin="10,6,25,141" Grid.Row="6"/>
-        <TextBox Name="PopulationInput" Height="20" Margin="10,31,25,116" Grid.Row="6"/>
-        <TextBox Name="CountyInput" Height="20" Margin="10,56,25,91" Grid.Row="6"/>
+        <TextBox Name="NameInput" Height="20" Margin="10,6,25,141" Grid.Row="6" Grid.RowSpan="2"/>
+        <TextBox Name="PopulationInput" Height="20" Margin="10,31,25,116" Grid.Row="6" Grid.RowSpan="2"/>
+        <TextBox Name="CountyInput" Height="20" Margin="10,56,25,91" Grid.Row="6" Grid.RowSpan="2"/>
     </Grid>
 </Window>
