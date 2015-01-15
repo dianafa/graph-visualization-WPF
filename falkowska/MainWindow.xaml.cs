@@ -59,13 +59,15 @@ namespace falkowska
 
         private void AddArc(object sender, RoutedEventArgs e)
         {
-            if (lbNodes.SelectedItem != null)
+            /*if (lbNodes.SelectedItem != null)
             {
-                MessageBox.Show("Dodajesz luk do: " + lbNodes.SelectedItem);
+                MessageBox.Show("Dodajesz luk z: " + lbNodes.SelectedItem + ". Wybierz destynacje i kliknij przycisk ponownie.");
             }
             else {
                 MessageBox.Show("Select node you want to add arc to");
-            }
+            }*/
+            var newWindow = new AddArcWindow();
+            newWindow.Show();
 
         }
 
