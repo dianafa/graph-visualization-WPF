@@ -29,7 +29,7 @@ namespace falkowska
             cityGraph = new Graph<City>();
             cityGraph["Poznan"] = new City("Poznan", "wielkopolskie", "547tys.");
             cityGraph.AddNode(new City("Krakow", "wielkopolskie", "647tys."));
-            MessageBox.Show("cityGraph.nodes[0]: " + cityGraph.nodes["Poznan"]);
+            //MessageBox.Show("cityGraph.nodes[0]: " + cityGraph.nodes["Poznan"]);
             lbNodes.ItemsSource = cityGraph.nodes;
         }
 
@@ -48,12 +48,13 @@ namespace falkowska
 
         private void EditNode(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Edytujesz noda: ");
+            MessageBox.Show("Edytujesz noda: "+ lbNodes.SelectedItem);
+
         }
 
         private void RemoveNode(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Usuwasz noda: ");
+            MessageBox.Show("Czy na pewno chcesz usunac: " + lbNodes.SelectedItem + "?");
         }
     }
 }
