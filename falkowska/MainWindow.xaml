@@ -1,8 +1,8 @@
 ﻿<Window x:Class="falkowska.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="600" Width="600">
-    <Grid Height="600" Width="600" Margin="10, 0, 10, 10" Name="MainGrid" MouseUp="MainGrid_MouseUp" Background="Coral">
+        Title="MainWindow" Height="700" Width="700">
+    <Grid Height="700" Width="700" Margin="10, 0, 10, 10" Name="MainGrid" MouseUp="MainGrid_MouseUp" Background="Coral">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition />
@@ -22,13 +22,12 @@
 
         <Label  Grid.Column="0" Grid.Row="0" FontWeight="Bold">Choose algorithm</Label>
         <RadioButton Grid.Column="0" Grid.Row="0" GroupName="sex" Margin="0,22,58,90">DFS</RadioButton>
-        <RadioButton Grid.Column="0" Grid.Row="1" GroupName="sex">BFS</RadioButton>
-        <RadioButton Grid.Column="0" Grid.Row="2" GroupName="sex" IsChecked="True">Not sure</RadioButton>
+        <RadioButton Grid.Column="0" Grid.Row="0" GroupName="sex" Content="BFS" Margin="0,38,10,80"/>
+        <RadioButton Grid.Column="0" Grid.Row="0" GroupName="sex" IsChecked="True" Margin="0,56,10,63">Not sure</RadioButton>
 
         <TextBlock Grid.Column="2" ><Run Language="pl-pl" Text=""/><LineBreak/><Run Text=" "/></TextBlock>
-        <TextBox Text="{Binding name}" Height="20" Margin="10,87,10,35" Grid.Row="4"/>
 
-        <Button Click="AddNode" Grid.Column="0" Grid.Row="4" Margin="0,107,0,0" Width="150" Height="25" HorizontalAlignment="Left">Add node</Button>
+        <Button Click="AddNode" Grid.Column="0" Grid.Row="6" Margin="0,81,0,61" Width="175" Height="25" HorizontalAlignment="Left">Add node</Button>
         <Button Click="EditNode" Grid.Column="0" Grid.Row="4" Margin="0,5,0,102" Width="150" Height="25" HorizontalAlignment="Left">Edit node</Button>
         <Button Click="RemoveNode" Grid.Column="0" Grid.Row="4" Margin="0,35,0,64" Width="150" Height="25" HorizontalAlignment="Left">Remove node</Button>
 
@@ -37,5 +36,8 @@
         </Border>
         <ListBox Name="lbNodes" DisplayMemberPath="Value" Grid.Column="0" Grid.Row="2">
         </ListBox>
+        <TextBox Name="NameInput" Height="20" Margin="10,6,25,141" Grid.Row="6"/>
+        <TextBox Name="PopulationInput" Height="20" Margin="10,31,25,116" Grid.Row="6"/>
+        <TextBox Name="CountyInput" Height="20" Margin="10,56,25,91" Grid.Row="6"/>
     </Grid>
 </Window>

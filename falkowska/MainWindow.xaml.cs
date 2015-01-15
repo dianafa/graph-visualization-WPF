@@ -22,7 +22,6 @@ namespace falkowska
     public partial class MainWindow : Window
     {
         Graph<City> cityGraph;
-        public List<String> lista;
         public MainWindow()
         {
             InitializeComponent();
@@ -32,12 +31,6 @@ namespace falkowska
             cityGraph.AddNode(new City("Krakow", "wielkopolskie", "647tys."));
             MessageBox.Show("cityGraph.nodes[0]: " + cityGraph.nodes["Poznan"]);
             lbNodes.ItemsSource = cityGraph.nodes;
-           
-            lista = new List<String>();
-            lista.Add("diana");
-            lista.Add("pies");
-            //lbNodes.ItemsSource = lista;
-
         }
 
         private void MainGrid_MouseUp(object sender, MouseButtonEventArgs e)
@@ -47,9 +40,8 @@ namespace falkowska
         }
         private void AddNode(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(" cityGraph[Poznan].name: " + cityGraph["Poznan"].name);
-            cityGraph["Bydgoszcz"] = new City("Bydgoszcz", "kujawsko-pomorskie", "297tys.");
-            MessageBox.Show("cityGraph.nodeCount: " + cityGraph.nodes.Count);
+            cityGraph.AddNode(new City(NameInput.Text, CountyInput.Text, PopulationInput.Text));
+            //cityGraph["Bydgoszcz"] = new City("Bydgoszcz", "kujawsko-pomorskie", "297tys.");
             lbNodes.ItemsSource = null;
             lbNodes.ItemsSource = cityGraph.nodes;
         }
