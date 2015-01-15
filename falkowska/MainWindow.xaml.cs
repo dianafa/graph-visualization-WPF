@@ -36,7 +36,7 @@ namespace falkowska
         private void MainGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
             //MessageBox.Show("You clicked me at " + e.GetPosition(this).ToString());
-            MessageBox.Show("cityGraph.nodeCount: " + cityGraph.nodes.Count);
+            //MessageBox.Show("cityGraph.nodeCount: " + cityGraph.nodes.Count);
         }
         private void AddNode(object sender, RoutedEventArgs e)
         {
@@ -57,21 +57,33 @@ namespace falkowska
             MessageBox.Show("Czy na pewno chcesz usunac: " + lbNodes.SelectedItem + "?");
         }
 
+        private void AddArc(object sender, RoutedEventArgs e)
+        {
+            if (lbNodes.SelectedItem != null)
+            {
+                MessageBox.Show("Dodajesz luk do: " + lbNodes.SelectedItem);
+            }
+            else {
+                MessageBox.Show("Select node you want to add arc to");
+            }
+
+        }
+
         private void RunAlgorithm(object sender, RoutedEventArgs e)
         {
-            string alg = "żaden";
             if (radioDFS.IsChecked == true)
             {
-                alg = "DFS";
-                MessageBox.Show("Uruchamiasz algorytm: " + alg);
+                MessageBox.Show("Uruchamiasz algorytm: " + radioDFS.Content);
                 IEnumerable<Node<City>> wynik = cityGraph.DFS(cityGraph.nodes["Poznan"]);
                 MessageBox.Show("Wynik: " + wynik);
+                return;
             }
             if (radioBFS.IsChecked == true)
             {
-                alg = "BFS";
-                MessageBox.Show("Uruchamiasz algorytm: " + alg);
+                MessageBox.Show("Uruchamiasz algorytm: " + radioBFS.Content);
+                return;
             }
+            MessageBox.Show("Wybierz opcje!");
             
         }
     }

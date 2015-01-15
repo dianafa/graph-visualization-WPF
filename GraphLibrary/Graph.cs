@@ -41,7 +41,7 @@ namespace GraphLibrary
         {
             foreach (KeyValuePair<string, Node<T>> node in nodes)
             {
-                if (node.Key == null) //czy moze byc? 
+                if (node.Key == null)
                 {
                     break;
                 }

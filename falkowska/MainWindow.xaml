@@ -24,13 +24,14 @@
         <Label  Grid.Column="0" Grid.Row="0" FontWeight="Bold" Grid.RowSpan="2">
             <Button Click="RunAlgorithm" Width="175" Height="25" HorizontalAlignment="Left" Content="Run algorithm" RenderTransformOrigin="0.463,3.2"/>
         </Label>
-        <RadioButton Name="radioDFS" Grid.Column="0" Grid.Row="0" GroupName="alg" Margin="0,22,58,15">DFS</RadioButton>
+        <RadioButton Name="radioDFS" Grid.Column="0" Grid.Row="0" GroupName="alg" Margin="0,22,58,15" Content="DFS"></RadioButton>
         <RadioButton Name="radioBFS" Grid.Column="0" Grid.Row="0" GroupName="alg" Content="BFS" Margin="0,38,10,5"/>
-        <RadioButton Name="notSure" Grid.Column="0" Grid.Row="0" GroupName="alg" IsChecked="True" Margin="0,56,10,63" Grid.RowSpan="2">Not sure</RadioButton>
+        <RadioButton Name="notSure" Grid.Column="0" Grid.Row="0" GroupName="alg" IsChecked="True" Margin="0,56,10,63" Grid.RowSpan="2" Content="Not sure"></RadioButton>
 
         <Button Click="AddNode" Grid.Column="0" Grid.Row="6" Margin="0,81,0,61" Width="175" Height="25" HorizontalAlignment="Left" Grid.RowSpan="2">Add node</Button>
-        <Button Click="EditNode" Grid.Column="0" Grid.Row="4" Margin="0,22,0,119" Width="175" Height="25" HorizontalAlignment="Left" Grid.RowSpan="2">Edit node</Button>
-        <Button Click="RemoveNode" Grid.Column="0" Grid.Row="4" Margin="0,56,0,85" Width="175" Height="25" HorizontalAlignment="Left" Grid.RowSpan="2">Remove node</Button>
+        <Button Click="EditNode" Grid.Column="0" Grid.Row="4" Margin="0,40,0,101" Width="175" Height="25" HorizontalAlignment="Left" Grid.RowSpan="2">Edit node</Button>
+        <Button Click="RemoveNode" Grid.Column="0" Grid.Row="4" Margin="0,70,0,71" Width="175" Height="25" HorizontalAlignment="Left" Grid.RowSpan="2">Remove node</Button>
+        <Button Click="AddArc" Grid.Column="0" Grid.Row="4" Margin="0,10,0,131" Width="175" Height="25" HorizontalAlignment="Left" Grid.RowSpan="2" Content="Add new arc"/>
 
         <Border Grid.Column="0" Grid.Row="2" Height="35" Padding="5" Background="#4E87D4">
             <Label VerticalAlignment="Center" Foreground="White">Nodes</Label>
