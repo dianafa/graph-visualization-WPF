@@ -9,8 +9,8 @@ namespace CityGraph
 {
     public class City : Node<City>
     {
-        string county;
-        string population;
+        public string county;
+        string population { get; set; }
 
         public City(string name, string county, string population)
         {

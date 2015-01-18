@@ -23,6 +23,13 @@ namespace GraphLibrary
             set
             {
                 nodes[index] = value;
+                Node<T> graphNode = new NodeVisualization<T>();
+                graphNode.name = value.name;
+                graphNode.type = value.GetType();
+                //nodes.Add(value.name, graphNode);
+                //rysuj!
+                ((NodeVisualization<T>)graphNode).PaintNode();
+                visualized_nodes.Add((NodeVisualization<T>)graphNode);
             }
         }
 

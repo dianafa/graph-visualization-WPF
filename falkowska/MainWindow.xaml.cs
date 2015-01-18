@@ -27,9 +27,10 @@ namespace falkowska
             this.DataContext = this;
             cityGraph = new Graph<City>();
             cityGraph["Poznan"] = new City("Poznan", "wielkopolskie", "547tys.");
+            updateCanvas();
             cityGraph.AddNode(new City("Krakow", "wielkopolskie", "647tys."));
-            //MessageBox.Show("cityGraph.nodes[0]: " + cityGraph.nodes["Poznan"]);
             lbNodes.ItemsSource = cityGraph.nodes;
+            updateCanvas();
         }
 
         public Graph<City> getGraph() 
@@ -48,14 +49,17 @@ namespace falkowska
             MessageBox.Show(info);
             lbNodes.ItemsSource = null;
             lbNodes.ItemsSource = cityGraph.nodes;
-            foreach (NodeVisualization<City> v_node in cityGraph.visualized_nodes)
-            {
-                Canvas.SetTop(v_node.ellipse, v_node.y);
-                Canvas.SetLeft(v_node.ellipse, v_node.x);
-                v_node.ellipse.Name = v_node.name;
-                v_node.ellipse.MouseUp += ellipse_MouseUp;
-                canvas.Children.Add(v_node.ellipse);
-            }
+            updateCanvas();
+        }
+
+        private void updateCanvas()
+        {
+            NodeVisualization<City> new_node = cityGraph.visualized_nodes.Last();
+            Canvas.SetTop(new_node.ellipse, new_node.y);
+            Canvas.SetLeft(new_node.ellipse, new_node.x);
+            new_node.ellipse.Name = new_node.name;
+            new_node.ellipse.MouseUp += ellipse_MouseUp;
+            canvas.Children.Add(new_node.ellipse);
         }
 
         private void ellipse_MouseUp(object sender, MouseButtonEventArgs e)
@@ -64,7 +68,9 @@ namespace falkowska
             mySolidColorBrush.Color = Color.FromArgb(255, 0, 255, 0);
             ((Ellipse)e.Source).Fill = mySolidColorBrush;
             //((Ellipse)e.Source).Style = (Style)((Ellipse)e.Source).TryFindResource("NodeStyle");
-            MessageBox.Show("City: " + ((FrameworkElement)e.Source).Name);
+            string name = ((Ellipse)e.Source).Name;
+            Node<City> node = cityGraph[name];
+            MessageBox.Show("City: " + node.name + " Typ: " + node.GetType());
         }
 
         private void EditNode(object sender, RoutedEventArgs e)
