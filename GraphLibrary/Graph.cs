@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Shapes;
+
 
 namespace GraphLibrary
 {
     public class Graph<T> : IEnumerable<Node<T>>
     {
         //int arcCount = 0;
-        public Dictionary<string, Node<T>> nodes = new Dictionary<string, Node<T>>(); //nie jestem pewna co do tego
+        public Dictionary<string, Node<T>> nodes = new Dictionary<string, Node<T>>();
+        public List<NodeVisualization<T>> visualized_nodes = new List<NodeVisualization<T>>();
 
         public Node<T> this[string index]
         {
@@ -25,7 +28,7 @@ namespace GraphLibrary
 
         public string AddNode(Node<T> node)
         {
-            //TODO: opakuj go w klase node i dodaj. CHYBA INTERFEJS BY SIE PRZYDAL
+            //if (node.name == null) obsluz w WPF
             if (nodes.ContainsKey(node.name)) {
                 return "This node already exists!";
             };
@@ -34,7 +37,8 @@ namespace GraphLibrary
             graphNode.type = node.GetType();
             nodes.Add(node.name, graphNode);
             //rysuj!
-           ((NodeVisualization<T>)graphNode).Paint();
+            ((NodeVisualization<T>)graphNode).PaintNode();
+            visualized_nodes.Add((NodeVisualization<T>)graphNode);
             return "Node was added";
         }
 

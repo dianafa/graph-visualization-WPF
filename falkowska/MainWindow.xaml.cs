@@ -18,7 +18,6 @@ using GraphLibrary;
 namespace falkowska
 {
     ///trzeba przeciazyc operator castowania
-    ///zamiast >> i << uzywaj .AddArc(). i zawsze z lewego do prawego bedzie
     public partial class MainWindow : Window
     {
         public Graph<City> cityGraph;
@@ -49,6 +48,19 @@ namespace falkowska
             MessageBox.Show(info);
             lbNodes.ItemsSource = null;
             lbNodes.ItemsSource = cityGraph.nodes;
+            foreach (NodeVisualization<City> v_node in cityGraph.visualized_nodes)
+            {
+                Canvas.SetTop(v_node.ellipse, v_node.y);
+                Canvas.SetLeft(v_node.ellipse, v_node.x);
+                v_node.ellipse.Name = v_node.name;
+                v_node.ellipse.MouseUp += ellipse_MouseUp;
+                canvas.Children.Add(v_node.ellipse);
+            }
+        }
+
+        private void ellipse_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("City: " + ((FrameworkElement)e.Source).Name);
         }
 
         private void EditNode(object sender, RoutedEventArgs e)
