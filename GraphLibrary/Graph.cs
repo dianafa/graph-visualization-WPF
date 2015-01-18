@@ -29,10 +29,12 @@ namespace GraphLibrary
             if (nodes.ContainsKey(node.name)) {
                 return "This node already exists!";
             };
-            Node<T> graphNode = new Node<T>();
+            Node<T> graphNode = new NodeVisualization<T>();
             graphNode.name = node.name;
             graphNode.type = node.GetType();
             nodes.Add(node.name, graphNode);
+            //rysuj!
+           ((NodeVisualization<T>)graphNode).Paint();
             return "Node was added";
         }
 

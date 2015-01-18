@@ -35,7 +35,7 @@ namespace falkowska
         {
             if (lbSrcNode.SelectedItem == lbDestNode.SelectedItem)
             {
-                MessageBox.Show("Cannot add arc from " + lbSrcNode.SelectedItem + " to " + lbDestNode.SelectedItem + "!");
+                MessageBox.Show("Cannot add arc from " + lbSrcNode.SelectedItem.ToString() + " to " + lbDestNode.SelectedItem.ToString() + "!");
             }
             else
             {

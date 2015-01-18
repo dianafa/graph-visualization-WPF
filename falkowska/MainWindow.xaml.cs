@@ -44,7 +44,8 @@ namespace falkowska
         }
         private void AddNode(object sender, RoutedEventArgs e)
         {
-            string info = cityGraph.AddNode(new City(NameInput.Text, CountyInput.Text, PopulationInput.Text));
+            Node<City> new_node = new City(NameInput.Text, CountyInput.Text, PopulationInput.Text);
+            string info = cityGraph.AddNode(new_node);
             MessageBox.Show(info);
             lbNodes.ItemsSource = null;
             lbNodes.ItemsSource = cityGraph.nodes;
@@ -90,6 +91,16 @@ namespace falkowska
                 return;
             }
             MessageBox.Show("Wybierz opcje!");
+            
+        }
+
+        private void canvas_Drop(object sender, DragEventArgs e)
+        {
+            
+        }
+
+        private void canvas_DragEnter(object sender, DragEventArgs e)
+        {
             
         }
     }

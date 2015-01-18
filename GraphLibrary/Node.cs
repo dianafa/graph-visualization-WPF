@@ -19,13 +19,7 @@ namespace GraphLibrary
 
         public void AddArc(Node<T> destination)
         {
-            //destination.arcsOut.AddLast(this);
             arcsOut.AddLast(destination);
-        }
-
-        public override string ToString()
-        {
-            return this.name;
         }
     }
 

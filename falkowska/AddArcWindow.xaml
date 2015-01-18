@@ -21,13 +21,13 @@
         <Border Grid.Column="0" Grid.Row="0" Height="35" Padding="5" Background="#4E87D4" Margin="0,55,0,0">
             <Label VerticalAlignment="Center"  HorizontalAlignment="Center" Foreground="White">Source</Label>
         </Border>
-        <ListBox Name="lbSrcNode" DisplayMemberPath="Value" Grid.Column="0" Grid.Row="1">
+        <ListBox Name="lbSrcNode" DisplayMemberPath="Key" Grid.Column="0" Grid.Row="1">
         </ListBox>
 
         <Border Grid.Column="1" Grid.Row="0" Height="35" Padding="5" Background="#4E87D4" Margin="0,55,0,0">
             <Label VerticalAlignment="Center"  HorizontalAlignment="Center" Foreground="White">Destination</Label>
         </Border>
-        <ListBox Name="lbDestNode" DisplayMemberPath="Value" Grid.Column="1" Grid.Row="1">
+        <ListBox Name="lbDestNode" DisplayMemberPath="Key" Grid.Column="1" Grid.Row="1">
         </ListBox>
 
         <Button Click="SaveArc" Grid.Column="1" Grid.Row="2" Width="126" Height="25" HorizontalAlignment="Left" Content="Save arc" Margin="10,10,0,9"/>
