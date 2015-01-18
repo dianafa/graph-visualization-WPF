@@ -27,6 +27,7 @@ namespace GraphLibrary
         public void AddNode(Node<T> node)
         {
             //TODO: opakuj go w klase node i dodaj. CHYBA INTERFEJS BY SIE PRZYDAL
+            //SPRAWDZ CZY NODE istnieje
             Node<T> graphNode = new Node<T>();
             graphNode.name = node.name;
             graphNode.type = node.GetType();
