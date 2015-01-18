@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using GraphLibrary;
+using CityGraph;
 
 namespace falkowska
 {
@@ -19,11 +21,12 @@ namespace falkowska
     /// </summary>
     public partial class AddArcWindow : Window
     {
+        MainWindow bigWindow;
         public AddArcWindow()
         {
             InitializeComponent();
 
-            MainWindow bigWindow = new MainWindow();
+            bigWindow = new MainWindow();
             lbDestNode.ItemsSource = bigWindow.getGraph().nodes;
             lbSrcNode.ItemsSource = bigWindow.getGraph().nodes;
         }
@@ -37,6 +40,9 @@ namespace falkowska
             else
             {
                 MessageBox.Show("Dodaje luk z " + lbSrcNode.SelectedItem + " do " + lbDestNode.SelectedItem);
+                bigWindow.cityGraph.nodes["Poznan"].AddArc(bigWindow.cityGraph.nodes["Krakow"]);
+                MessageBox.Show("Arcs: " + bigWindow.cityGraph.nodes["Poznan"].arcsOut.Last);
+                //bigWindow.getGraph().nodes[lbSrcNode.SelectedItem.ToString].AddArc(bigWindow.getGraph().nodes[lbDestNode.SelectedItem.ToString]);
             }
         }
     }

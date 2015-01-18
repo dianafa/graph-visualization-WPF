@@ -10,7 +10,7 @@ namespace GraphLibrary
     {
         //public int nodeCount = 0; niepotrzebne, bo nodes.Count
         //int arcCount = 0;
-        public Dictionary<string, Node<T>> nodes = new Dictionary<string, Node<T>>();
+        public Dictionary<string, Node<T>> nodes = new Dictionary<string, Node<T>>(); //nie jestem pewna co do tego
 
         public Node<T> this[string index]
         {

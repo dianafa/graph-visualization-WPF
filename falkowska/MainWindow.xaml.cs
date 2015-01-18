@@ -17,11 +17,9 @@ using GraphLibrary;
 
 namespace falkowska
 {
-    ///trzeba przeciazyc operator castowania
-    ///zamiast >> i << uzywaj .AddArc(). i zawsze z lewego do prawego bedzie
     public partial class MainWindow : Window
     {
-        public Graph<City> cityGraph;
+        public Graph<City> cityGraph {get; set;}
         public MainWindow()
         {
             InitializeComponent();
