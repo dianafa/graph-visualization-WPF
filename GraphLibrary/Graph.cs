@@ -8,7 +8,6 @@ namespace GraphLibrary
 {
     public class Graph<T> : IEnumerable<Node<T>>
     {
-        //public int nodeCount = 0; niepotrzebne, bo nodes.Count
         //int arcCount = 0;
         public Dictionary<string, Node<T>> nodes = new Dictionary<string, Node<T>>(); //nie jestem pewna co do tego
 
@@ -24,15 +23,17 @@ namespace GraphLibrary
             }
         }
 
-        public void AddNode(Node<T> node)
+        public string AddNode(Node<T> node)
         {
             //TODO: opakuj go w klase node i dodaj. CHYBA INTERFEJS BY SIE PRZYDAL
-            //SPRAWDZ CZY NODE istnieje
+            if (nodes.ContainsKey(node.name)) {
+                return "This node already exists!";
+            };
             Node<T> graphNode = new Node<T>();
             graphNode.name = node.name;
             graphNode.type = node.GetType();
-            Console.WriteLine("dodaje noda: " + node.name);
             nodes.Add(node.name, graphNode);
+            return "Node was added";
         }
 
         //Implementation of IEnumberable interface

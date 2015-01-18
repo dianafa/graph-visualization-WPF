@@ -17,9 +17,11 @@ using GraphLibrary;
 
 namespace falkowska
 {
+    ///trzeba przeciazyc operator castowania
+    ///zamiast >> i << uzywaj .AddArc(). i zawsze z lewego do prawego bedzie
     public partial class MainWindow : Window
     {
-        public Graph<City> cityGraph {get; set;}
+        public Graph<City> cityGraph;
         public MainWindow()
         {
             InitializeComponent();
@@ -42,8 +44,8 @@ namespace falkowska
         }
         private void AddNode(object sender, RoutedEventArgs e)
         {
-            cityGraph.AddNode(new City(NameInput.Text, CountyInput.Text, PopulationInput.Text));
-            //cityGraph["Bydgoszcz"] = new City("Bydgoszcz", "kujawsko-pomorskie", "297tys.");
+            string info = cityGraph.AddNode(new City(NameInput.Text, CountyInput.Text, PopulationInput.Text));
+            MessageBox.Show(info);
             lbNodes.ItemsSource = null;
             lbNodes.ItemsSource = cityGraph.nodes;
         }

@@ -1,7 +1,6 @@
 ﻿<Window x:Class="falkowska.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:falkowska"
         Title="MainWindow" Height="700" Width="700">
     <Grid Height="700" Width="700" Name="MainGrid" MouseUp="MainGrid_MouseUp" Background="Coral">
         <Grid.ColumnDefinitions>
