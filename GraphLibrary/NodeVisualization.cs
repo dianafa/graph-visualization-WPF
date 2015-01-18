@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
@@ -33,6 +34,9 @@ namespace GraphLibrary
             // Set the width and height of the Ellipse.
             myEllipse.Width = 50;
             myEllipse.Height = 50;
+
+            //ellipse.Style = (Style)ellipse.TryFindResource("NodeStyle");
+
             this.ellipse = myEllipse;
 
             var rnd = new Random(DateTime.Now.Millisecond);

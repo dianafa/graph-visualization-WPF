@@ -60,6 +60,10 @@ namespace falkowska
 
         private void ellipse_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            SolidColorBrush mySolidColorBrush = new SolidColorBrush();
+            mySolidColorBrush.Color = Color.FromArgb(255, 0, 255, 0);
+            ((Ellipse)e.Source).Fill = mySolidColorBrush;
+            //((Ellipse)e.Source).Style = (Style)((Ellipse)e.Source).TryFindResource("NodeStyle");
             MessageBox.Show("City: " + ((FrameworkElement)e.Source).Name);
         }
 
