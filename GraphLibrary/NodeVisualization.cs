@@ -36,7 +36,6 @@ namespace GraphLibrary
             myEllipse.Height = 50;
 
             //ellipse.Style = (Style)ellipse.TryFindResource("NodeStyle");
-
             this.ellipse = myEllipse;
 
             var rnd = new Random(DateTime.Now.Millisecond);

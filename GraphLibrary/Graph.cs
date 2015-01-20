@@ -33,11 +33,11 @@ namespace GraphLibrary
             }
         }
 
-        public string AddNode(Node<T> node)
+        public bool AddNode(Node<T> node)
         {
             //if (node.name == null) obsluz w WPF
             if (nodes.ContainsKey(node.name)) {
-                return "This node already exists!";
+                return false;
             };
             Node<T> graphNode = new NodeVisualization<T>();
             graphNode.name = node.name;
@@ -46,7 +46,7 @@ namespace GraphLibrary
             //rysuj!
             ((NodeVisualization<T>)graphNode).PaintNode();
             visualized_nodes.Add((NodeVisualization<T>)graphNode);
-            return "Node was added";
+            return true;
         }
 
         //Implementation of IEnumberable interface

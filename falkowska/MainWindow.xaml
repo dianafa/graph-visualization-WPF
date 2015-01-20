@@ -66,7 +66,7 @@
         <TextBox Name="NameInput" Margin="10,6,25,141" Grid.Row="6" Grid.RowSpan="2"/>
         <TextBox Name="PopulationInput" Margin="10,31,25,116" Grid.Row="6" Grid.RowSpan="2"/>
         <TextBox Name="CountyInput" Margin="10,56,25,91" Grid.Row="6" Grid.RowSpan="2"/>
-        <Canvas Style="{StaticResource NodeStyle}" AllowDrop="True" Name="canvas" Grid.Column="2" Grid.Row="1" Grid.RowSpan="5" Background="Bisque" Drop="canvas_Drop" DragEnter="canvas_DragEnter">
+        <Canvas AllowDrop="True" Name="canvas" Grid.Column="2" Grid.Row="1" Grid.RowSpan="5" Background="Bisque" Drop="canvas_Drop" DragEnter="canvas_DragEnter">
         </Canvas>
     </Grid>
 </Window>
