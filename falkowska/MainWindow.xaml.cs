@@ -45,7 +45,8 @@ namespace falkowska
 
         private void AddNode(object sender, RoutedEventArgs e)
         {
-            Node<City> new_node = new City(NameInput.Text, CountyInput.Text, PopulationInput.Text);
+            string name = (NameInput.Text.Trim() == null) ? NameInput.Text : randomNodeName();
+            Node<City> new_node = new City(name, CountyInput.Text, PopulationInput.Text);
             bool success = cityGraph.AddNode(new_node);
             if (success)
             {
@@ -144,14 +145,13 @@ namespace falkowska
             base.OnMouseMove(e);
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                //MessageBox.Show("sender: "+ sender);
                 //MessageBox.Show("Started to move from " + e.GetPosition(canvas).ToString());
                 Ellipse ellipse = sender as Ellipse;
                 if (ellipse != null && e.LeftButton == MouseButtonState.Pressed)
                 {
                     DataObject data = new DataObject();
-                    data.SetData(DataFormats.StringFormat, ellipse.Fill.ToString());
-                    data.SetData("Double", ellipse.Height);
+                    //data.SetData(DataFormats.StringFormat, ellipse.Fill.ToString());
+                    //data.SetData("Double", ellipse.Height);
                     data.SetData("Object", ellipse);
 
                     DragDrop.DoDragDrop(this,
@@ -202,6 +202,17 @@ namespace falkowska
                 MessageBox.Show("nie ma pola string");
                 e.Effects = DragDropEffects.None;
             }*/
+        }
+
+        private string randomNodeName()
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZAAAAA";
+            var random = new Random();
+            var result = new string(
+                Enumerable.Repeat(chars, 8)
+                          .Select(s => s[random.Next(s.Length)])
+                          .ToArray());
+            return result;
         }
     }
 }

@@ -67,6 +67,21 @@
         <TextBox Name="PopulationInput" Margin="10,31,25,116" Grid.Row="6" Grid.RowSpan="2"/>
         <TextBox Name="CountyInput" Margin="10,56,25,91" Grid.Row="6" Grid.RowSpan="2"/>
         <Canvas AllowDrop="True" Name="canvas" Grid.Column="2" Grid.Row="1" Grid.RowSpan="5" Background="Bisque" Drop="canvas_Drop" DragEnter="canvas_DragEnter">
+            <Canvas.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Command="Cut">
+                    </MenuItem>
+                    <MenuItem Command="Copy">
+                    </MenuItem>
+                    <MenuItem Command="Paste">
+                    </MenuItem>
+                    <MenuItem Header="Add new node" Click="AddNode">
+                    </MenuItem>
+                    <MenuItem Header="Menu item 2" />
+                    <Separator />
+                    <MenuItem Header="Menu item 3" />
+                </ContextMenu>
+            </Canvas.ContextMenu>
         </Canvas>
     </Grid>
 </Window>
