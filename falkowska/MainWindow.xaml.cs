@@ -85,9 +85,12 @@ namespace falkowska
 
         void ellipse_MouseEnter(object sender, MouseEventArgs e)
         {
+            Ellipse ell = ((Ellipse)e.Source);
             SolidColorBrush mySolidColorBrush = new SolidColorBrush();
             mySolidColorBrush.Color = Color.FromArgb(255, 0, 255, 0);
-            ((Ellipse)e.Source).Fill = mySolidColorBrush;
+            ell.Fill = mySolidColorBrush;
+            ell.ToolTip = ell.Name;
+            
         }
 
         private void ellipse_MouseDown(object sender, MouseButtonEventArgs e)
