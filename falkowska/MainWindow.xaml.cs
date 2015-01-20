@@ -145,16 +145,16 @@ namespace falkowska
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 //MessageBox.Show("sender: "+ sender);
-                MessageBox.Show("Started to move from " + e.GetPosition(canvas).ToString());
+                //MessageBox.Show("Started to move from " + e.GetPosition(canvas).ToString());
                 Ellipse ellipse = sender as Ellipse;
                 if (ellipse != null && e.LeftButton == MouseButtonState.Pressed)
                 {
                     DataObject data = new DataObject();
                     data.SetData(DataFormats.StringFormat, ellipse.Fill.ToString());
                     data.SetData("Double", ellipse.Height);
-                    data.SetData("Object", this);
+                    data.SetData("Object", ellipse);
 
-                    DragDrop.DoDragDrop(ellipse,
+                    DragDrop.DoDragDrop(this,
                                          data,
                                          DragDropEffects.Move);
                 }
@@ -163,12 +163,45 @@ namespace falkowska
 
         private void canvas_Drop(object sender, DragEventArgs e)
         {
-            
+            Canvas c = sender as Canvas;
+
+            if (c != null)
+            {
+                // If an element in the panel has already handled the drop, 
+                // the panel should not also handle it. 
+                if (e.Handled == false)
+                {
+                    Ellipse _element = (Ellipse)e.Data.GetData("Object");
+                    if (c != null && _element != null)
+                    {
+                        if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
+                        {
+                            c.Children.Remove(_element);
+                            //zmien pozycje
+                            System.Windows.Point position = e.GetPosition(canvas);
+                            Canvas.SetTop(_element, position.Y);
+                            Canvas.SetLeft(_element, position.X);
+                            c.Children.Add(_element);
+                            // set the value to return to the DoDragDrop call
+                            e.Effects = DragDropEffects.Move;
+                        }
+                    }
+                }
+            }
         }
 
         private void canvas_DragEnter(object sender, DragEventArgs e)
         {
-            
+            /*if (e.Data.GetDataPresent(DataFormats.StringFormat))
+            {
+                MessageBox.Show("jest strib");
+                //e.Effects = DragDropEffects.Copy;
+            }
+            else
+            {
+                MessageBox.Show("nie ma pola string");
+                e.Effects = DragDropEffects.None;
+            }*/
         }
     }
 }
