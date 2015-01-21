@@ -19,7 +19,18 @@ namespace GraphLibrary
 
         public void AddArc(Node<T> destination)
         {
-            arcsOut.AddLast(destination);
+            /*try
+            {
+                arcsOut.AddLast(destination);
+            }
+            catch (NullReferenceException)
+            {
+                int a;
+            }*/
+            Node<T> n = new Node<T> { name = destination.name };
+            //n = destination;
+            //arcsOut.AddLast(new Node<T> { name = destination.name });
+            
         }
     }
 

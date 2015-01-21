@@ -25,7 +25,6 @@ namespace falkowska
         public AddArcWindow()
         {
             InitializeComponent();
-
             bigWindow = new MainWindow();
             lbDestNode.ItemsSource = bigWindow.getGraph().nodes;
             lbSrcNode.ItemsSource = bigWindow.getGraph().nodes;
@@ -39,10 +38,10 @@ namespace falkowska
             }
             else
             {
-                MessageBox.Show("Dodaje luk z " + lbSrcNode.SelectedItem + " do " + lbDestNode.SelectedItem);
-                bigWindow.cityGraph.nodes["Poznan"].AddArc(bigWindow.cityGraph.nodes["Krakow"]);
-                MessageBox.Show("Arcs: " + bigWindow.cityGraph.nodes["Poznan"].arcsOut.Last);
-                //bigWindow.getGraph().nodes[lbSrcNode.SelectedItem.ToString].AddArc(bigWindow.getGraph().nodes[lbDestNode.SelectedItem.ToString]);
+                KeyValuePair<string, Node<City>> kwp1 = (KeyValuePair<string, Node<City>>)lbSrcNode.SelectedItem;
+                KeyValuePair<string, Node<City>> kwp2 = (KeyValuePair<string, Node<City>>)lbDestNode.SelectedItem;
+                MessageBox.Show("Dodaje luk z " + kwp1.Key + " do " + kwp2.Key);
+                kwp1.Value.AddArc(kwp2.Value);
             }
         }
     }

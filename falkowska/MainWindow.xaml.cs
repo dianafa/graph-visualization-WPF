@@ -21,6 +21,7 @@ namespace falkowska
     public partial class MainWindow : Window
     {
         public Graph<City> cityGraph;
+        private AddArcWindow arcWindow;
         public MainWindow()
         {
             InitializeComponent();
@@ -119,9 +120,10 @@ namespace falkowska
             else {
                 MessageBox.Show("Select node you want to add arc to");
             }*/
-            var newWindow = new AddArcWindow();
-            newWindow.Show();
-
+            //var newWindow = new AddArcWindow();
+            arcWindow = new AddArcWindow();
+            arcWindow.Owner = this;
+            arcWindow.Show();
         }
 
         private void RunAlgorithm(object sender, RoutedEventArgs e)
@@ -216,6 +218,35 @@ namespace falkowska
                           .Select(s => s[random.Next(s.Length)])
                           .ToArray());
             return result;
+        }
+
+        private void ComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            // ... A List.
+            List<string> data = new List<string>();
+            data.Add("Book");
+            data.Add("Computer");
+            data.Add("Chair");
+            data.Add("Mug");
+
+            // ... Get the ComboBox reference.
+            var comboBox = sender as ComboBox;
+
+            // ... Assign the ItemsSource to the List.
+            comboBox.ItemsSource = data;
+
+            // ... Make the first item selected.
+            comboBox.SelectedIndex = 0;
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // ... Get the ComboBox.
+            var comboBox = sender as ComboBox;
+
+            // ... Set SelectedItem as Window Title.
+            string value = comboBox.SelectedItem as string;
+            this.Title = value + " Graph by dianafa";
         }
     }
 }
