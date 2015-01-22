@@ -22,16 +22,20 @@ namespace falkowska
     {
         public Graph<City> cityGraph;
         private AddArcWindow arcWindow;
+        public List<NodeVisualization<City>> visualized_nodes;
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = this;
+            visualized_nodes = new List<NodeVisualization<City>>();
             cityGraph = new Graph<City>();
+            ///**** add node ****
             cityGraph["Poznan"] = new City("Poznan", "wielkopolskie", "547tys.");
-            updateCanvas();
+            AddNode_Canvas("Poznan");
             cityGraph.AddNode(new City("Krakow", "wielkopolskie", "647tys."));
+            AddNode_Canvas("Krakow");
+
             lbNodes.ItemsSource = cityGraph.nodes;
-            updateCanvas();
         }
 
         public Graph<City> getGraph() 
@@ -44,7 +48,7 @@ namespace falkowska
             //MessageBox.Show("You clicked me at " + e.GetPosition(this).ToString());
         }
 
-        private void AddNode(object sender, RoutedEventArgs e)
+        private void AddNode_Click(object sender, RoutedEventArgs e)
         {
             string name = (NameInput.Text.Trim() == null) ? NameInput.Text : randomNodeName();
             Node<City> new_node = new City(name, CountyInput.Text, PopulationInput.Text);
@@ -53,13 +57,18 @@ namespace falkowska
             {
                 lbNodes.ItemsSource = null;
                 lbNodes.ItemsSource = cityGraph.nodes;
-                updateCanvas();
+                AddNode_Canvas(name);
             }
         }
 
-        private void updateCanvas()
+        private void AddNode_Canvas(string name)
         {
-            NodeVisualization<City> new_node = cityGraph.visualized_nodes.Last();
+            NodeVisualization<City> new_node = new NodeVisualization<City>(name);
+            MessageBox.Show("v_node: " + new_node);
+            visualized_nodes.Add(new_node);
+
+            MessageBox.Show("updateCanvas, ile nodow: "+ visualized_nodes.Count);
+
             Canvas.SetTop(new_node.ellipse, new_node.y);
             Canvas.SetLeft(new_node.ellipse, new_node.x);
             new_node.ellipse.Name = new_node.name;
@@ -101,17 +110,17 @@ namespace falkowska
             MessageBox.Show("City: " + node.name + " Typ: " + node.GetType());
         }
 
-        private void EditNode(object sender, RoutedEventArgs e)
+        private void EditNode_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Edytujesz noda: "+ lbNodes.SelectedItem);
         }
 
-        private void RemoveNode(object sender, RoutedEventArgs e)
+        private void RemoveNode_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Czy na pewno chcesz usunac: " + lbNodes.SelectedItem + "?");
         }
 
-        private void AddArc(object sender, RoutedEventArgs e)
+        private void AddArc_Click(object sender, RoutedEventArgs e)
         {
             /*if (lbNodes.SelectedItem != null)
             {
@@ -227,7 +236,7 @@ namespace falkowska
             data.Add("Book");
             data.Add("Computer");
             data.Add("Chair");
-            data.Add("Mug");
+            data.Add("City");
 
             // ... Get the ComboBox reference.
             var comboBox = sender as ComboBox;

@@ -13,9 +13,9 @@ namespace GraphLibrary
     {
         public double x;
         public double y;
-        public Ellipse ellipse = new Ellipse();
+        public Ellipse ellipse;
 
-        public void PaintNode()
+        public NodeVisualization (string name)
         {
             // Create a red Ellipse.
             Ellipse myEllipse = new Ellipse();
@@ -43,6 +43,7 @@ namespace GraphLibrary
             int y = rnd.Next(0, 300);
             this.x = x;
             this.y = y;
+            this.name = name;
         }
     }
 }

@@ -65,10 +65,10 @@
         <RadioButton Name="radioST" Grid.Column="0" Grid.Row="0" GroupName="alg" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,45,0,0" Width="130" Height="25" Content="SortTopologically"/>
         <RadioButton Name="radioEDP" Grid.Column="0" Grid.Row="0" GroupName="alg" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,65,0,0" Width="130" Height="25" Content="EulerianDirectedPath"></RadioButton>
 
-        <Button Click="AddNode" Grid.Column="0" Grid.Row="6" Margin="36,83,35,58" Height="26" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2" Width="58">Add node</Button>
-        <Button Click="EditNode" Grid.Column="0" Grid.Row="4" Margin="14,35,15,0" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.RowSpan="2">Edit node</Button>
-        <Button Click="RemoveNode" Grid.Column="0" Grid.Row="4" Margin="14,65,15,0" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.RowSpan="2">Remove node</Button>
-        <Button Click="AddArc" Grid.Column="0" Grid.Row="4" Margin="14,5,15,0" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.RowSpan="2" Content="Add new arc"/>
+        <Button Click="AddNode_Click" Grid.Column="0" Grid.Row="6" Margin="36,83,35,58" Height="26" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2" Width="58">Add node</Button>
+        <Button Click="EditNode_Click" Grid.Column="0" Grid.Row="4" Margin="14,35,15,0" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.RowSpan="2">Edit node</Button>
+        <Button Click="RemoveNode_Click" Grid.Column="0" Grid.Row="4" Margin="14,65,15,0" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.RowSpan="2">Remove node</Button>
+        <Button Click="AddArc_Click" Grid.Column="0" Grid.Row="4" Margin="14,5,15,0" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.RowSpan="2" Content="Add new arc"/>
 
         <Border Grid.Column="0" Grid.Row="2" Padding="5" Background="#4E87D4">
             <Label VerticalAlignment="Center" Foreground="White">Nodes</Label>
@@ -87,7 +87,7 @@
                     </MenuItem>
                     <MenuItem Command="Paste">
                     </MenuItem>
-                    <MenuItem Header="Add new node" Click="AddNode">
+                    <MenuItem Header="Add new node" Click="AddNode_Click">
                     </MenuItem>
                     <MenuItem Header="Menu item 2" />
                     <Separator />

@@ -12,7 +12,6 @@ namespace GraphLibrary
     {
         //int arcCount = 0;
         public Dictionary<string, Node<T>> nodes = new Dictionary<string, Node<T>>();
-        public List<NodeVisualization<T>> visualized_nodes = new List<NodeVisualization<T>>();
 
         public Node<T> this[string index]
         {
@@ -23,13 +22,6 @@ namespace GraphLibrary
             set
             {
                 nodes[index] = value;
-                Node<T> graphNode = new NodeVisualization<T>();
-                graphNode.name = value.name;
-                graphNode.type = value.GetType();
-                //nodes.Add(value.name, graphNode);
-                //rysuj!
-                ((NodeVisualization<T>)graphNode).PaintNode();
-                visualized_nodes.Add((NodeVisualization<T>)graphNode);
             }
         }
 
@@ -39,13 +31,10 @@ namespace GraphLibrary
             if (nodes.ContainsKey(node.name)) {
                 return false;
             };
-            Node<T> graphNode = new NodeVisualization<T>();
+            Node<T> graphNode = new Node<T>();
             graphNode.name = node.name;
             graphNode.type = node.GetType();
             nodes.Add(node.name, graphNode);
-            //rysuj!
-            ((NodeVisualization<T>)graphNode).PaintNode();
-            visualized_nodes.Add((NodeVisualization<T>)graphNode);
             return true;
         }
 
