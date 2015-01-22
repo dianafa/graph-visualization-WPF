@@ -9,7 +9,7 @@
                     <Label FontWeight="Bold" FontSize="12" Content="{Binding Path=Key}" DockPanel.Dock="Top"/>
                     <StackPanel Orientation="Horizontal">
                         <Label>Population:</Label>
-                        <Label Content="{Binding Path=Value.name}" />
+                        <Label Content="{Binding Path=Value}" />
                         <Label>County:</Label>
                         <Label Content="{Binding Path=Value.name}" />
                     </StackPanel>

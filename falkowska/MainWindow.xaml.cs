@@ -38,11 +38,6 @@ namespace falkowska
             lbNodes.ItemsSource = cityGraph.nodes;
         }
 
-        public Graph<City> getGraph() 
-        {
-            return this.cityGraph;
-        }
-
         private void MainGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
             //MessageBox.Show("You clicked me at " + e.GetPosition(this).ToString());
@@ -64,10 +59,10 @@ namespace falkowska
         private void AddNode_Canvas(string name)
         {
             NodeVisualization<City> new_node = new NodeVisualization<City>(name);
-            MessageBox.Show("v_node: " + new_node);
+            //MessageBox.Show("v_node: " + new_node);
             visualized_nodes.Add(new_node);
 
-            MessageBox.Show("updateCanvas, ile nodow: "+ visualized_nodes.Count);
+            //MessageBox.Show("updateCanvas, ile nodow: "+ visualized_nodes.Count);
 
             Canvas.SetTop(new_node.ellipse, new_node.y);
             Canvas.SetLeft(new_node.ellipse, new_node.x);
@@ -130,7 +125,7 @@ namespace falkowska
                 MessageBox.Show("Select node you want to add arc to");
             }*/
             //var newWindow = new AddArcWindow();
-            arcWindow = new AddArcWindow();
+            arcWindow = new AddArcWindow(cityGraph.nodes);
             arcWindow.Owner = this;
             arcWindow.Show();
         }

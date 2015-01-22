@@ -21,13 +21,11 @@ namespace falkowska
     /// </summary>
     public partial class AddArcWindow : Window
     {
-        MainWindow bigWindow;
-        public AddArcWindow()
+        public AddArcWindow(Dictionary<string, Node<City>> nodes)
         {
             InitializeComponent();
-            bigWindow = new MainWindow();
-            lbDestNode.ItemsSource = bigWindow.getGraph().nodes;
-            lbSrcNode.ItemsSource = bigWindow.getGraph().nodes;
+            lbDestNode.ItemsSource = nodes;
+            lbSrcNode.ItemsSource = nodes;
         }
 
         private void SaveArc(object sender, RoutedEventArgs e)
@@ -41,8 +39,14 @@ namespace falkowska
                 KeyValuePair<string, Node<City>> kwp1 = (KeyValuePair<string, Node<City>>)lbSrcNode.SelectedItem;
                 KeyValuePair<string, Node<City>> kwp2 = (KeyValuePair<string, Node<City>>)lbDestNode.SelectedItem;
                 MessageBox.Show("Dodaje luk z " + kwp1.Key + " do " + kwp2.Key);
-                kwp1.Value.AddArc(kwp2.Value);
+                string result = kwp1.Value.AddArc(kwp2.Value);
+                MessageBox.Show(result);
             }
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

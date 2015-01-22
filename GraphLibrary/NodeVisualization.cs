@@ -39,7 +39,7 @@ namespace GraphLibrary
             this.ellipse = myEllipse;
 
             var rnd = new Random(DateTime.Now.Millisecond);
-            int x = rnd.Next(0, 300);
+            int x = rnd.Next(0, 400);
             int y = rnd.Next(0, 300);
             this.x = x;
             this.y = y;

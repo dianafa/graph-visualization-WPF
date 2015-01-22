@@ -10,7 +10,6 @@ namespace GraphLibrary
 {
     public class Graph<T> : IEnumerable<Node<T>>
     {
-        //int arcCount = 0;
         public Dictionary<string, Node<T>> nodes = new Dictionary<string, Node<T>>();
 
         public Node<T> this[string index]
@@ -21,7 +20,7 @@ namespace GraphLibrary
             }
             set
             {
-                nodes[index] = value;
+                nodes[index] = new Node<T> { name = value.name, type = value.type};
             }
         }
 

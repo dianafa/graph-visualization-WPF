@@ -15,21 +15,19 @@ namespace GraphLibrary
     {
         public string name;
         public Type type;
-        public LinkedList<Node<T>> arcsOut;
+        public LinkedList<Node<T>> arcsOut = new LinkedList<Node<T>>();
 
-        public void AddArc(Node<T> destination)
+        public string AddArc(Node<T> destination)
         {
-            /*try
+            try
             {
                 arcsOut.AddLast(destination);
+                return arcsOut.Last().name;
             }
             catch (NullReferenceException)
             {
-                int a;
-            }*/
-            Node<T> n = new Node<T> { name = destination.name };
-            //n = destination;
-            //arcsOut.AddLast(new Node<T> { name = destination.name });
+                return "NullReferenceException";
+            }
             
         }
     }
