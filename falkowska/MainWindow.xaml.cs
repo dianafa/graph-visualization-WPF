@@ -40,7 +40,7 @@ namespace falkowska
 
         private void MainGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            //MessageBox.Show("You clicked me at " + e.GetPosition(this).ToString());
+            //Console.WriteLine("You clicked me at " + e.GetPosition(this).ToString());
         }
 
         private void AddNode_Click(object sender, RoutedEventArgs e)
@@ -59,10 +59,10 @@ namespace falkowska
         private void AddNode_Canvas(string name)
         {
             NodeVisualization<City> new_node = new NodeVisualization<City>(name);
-            //MessageBox.Show("v_node: " + new_node);
+            //Console.WriteLine("v_node: " + new_node);
             visualized_nodes.Add(new_node);
 
-            //MessageBox.Show("updateCanvas, ile nodow: "+ visualized_nodes.Count);
+            //Console.WriteLine("updateCanvas, ile nodow: "+ visualized_nodes.Count);
 
             Canvas.SetTop(new_node.ellipse, new_node.y);
             Canvas.SetLeft(new_node.ellipse, new_node.x);
@@ -71,14 +71,10 @@ namespace falkowska
             new_node.ellipse.MouseMove += ellipse_MouseMove;
             new_node.ellipse.MouseEnter += ellipse_MouseEnter;
             new_node.ellipse.MouseLeave += ellipse_MouseLeave;
-            new_node.ellipse.MouseRightButtonDown += ellipse_MouseRightButtonDown;
             canvas.Children.Add(new_node.ellipse);
-        }
 
-        void ellipse_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("Rightclick on: "+ sender.ToString());
-            Ellipse ellipse = (Ellipse)sender;
+            ContextMenu cm = this.FindResource("cmNode") as ContextMenu;
+            new_node.ellipse.ContextMenu = cm;
         }
 
         void ellipse_MouseLeave(object sender, MouseEventArgs e)
@@ -102,27 +98,27 @@ namespace falkowska
         {
             string name = ((Ellipse)e.Source).Name;
             Node<City> node = cityGraph[name];
-            MessageBox.Show("City: " + node.name + " Typ: " + node.GetType());
+            Console.WriteLine("City: " + node.name + " Typ: " + node.GetType());
         }
 
         private void EditNode_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Edytujesz noda: "+ lbNodes.SelectedItem);
+            Console.WriteLine("Edytujesz noda: "+ lbNodes.SelectedItem);
         }
 
         private void RemoveNode_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Czy na pewno chcesz usunac: " + lbNodes.SelectedItem + "?");
+            Console.WriteLine("Czy na pewno chcesz usunac: " + lbNodes.SelectedItem + "?");
         }
 
         private void AddArc_Click(object sender, RoutedEventArgs e)
         {
             /*if (lbNodes.SelectedItem != null)
             {
-                MessageBox.Show("Dodajesz luk z: " + lbNodes.SelectedItem + ". Wybierz destynacje i kliknij przycisk ponownie.");
+                Console.WriteLine("Dodajesz luk z: " + lbNodes.SelectedItem + ". Wybierz destynacje i kliknij przycisk ponownie.");
             }
             else {
-                MessageBox.Show("Select node you want to add arc to");
+                Console.WriteLine("Select node you want to add arc to");
             }*/
             //var newWindow = new AddArcWindow();
             arcWindow = new AddArcWindow(cityGraph.nodes);
@@ -134,17 +130,17 @@ namespace falkowska
         {
             if (radioDFS.IsChecked == true)
             {
-                MessageBox.Show("Uruchamiasz algorytm: " + radioDFS.Content);
+                Console.WriteLine("Uruchamiasz algorytm: " + radioDFS.Content);
                 IEnumerable<Node<City>> wynik = cityGraph.DFS(cityGraph.nodes["Poznan"]);
-                MessageBox.Show("Wynik: " + wynik);
+                Console.WriteLine("Wynik: " + wynik);
                 return;
             }
             if (radioBFS.IsChecked == true)
             {
-                MessageBox.Show("Uruchamiasz algorytm: " + radioBFS.Content);
+                Console.WriteLine("Uruchamiasz algorytm: " + radioBFS.Content);
                 return;
             }
-            MessageBox.Show("Wybierz opcje!");
+            Console.WriteLine("Wybierz opcje!");
             
         }
 
@@ -154,7 +150,7 @@ namespace falkowska
             base.OnMouseMove(e);
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                //MessageBox.Show("Started to move from " + e.GetPosition(canvas).ToString());
+                //Console.WriteLine("Started to move from " + e.GetPosition(canvas).ToString());
                 Ellipse ellipse = sender as Ellipse;
                 if (ellipse != null && e.LeftButton == MouseButtonState.Pressed)
                 {
@@ -203,12 +199,12 @@ namespace falkowska
         {
             /*if (e.Data.GetDataPresent(DataFormats.StringFormat))
             {
-                MessageBox.Show("jest strib");
+                Console.WriteLine("jest strib");
                 //e.Effects = DragDropEffects.Copy;
             }
             else
             {
-                MessageBox.Show("nie ma pola string");
+                Console.WriteLine("nie ma pola string");
                 e.Effects = DragDropEffects.None;
             }*/
         }
@@ -251,6 +247,58 @@ namespace falkowska
             // ... Set SelectedItem as Window Title.
             string value = comboBox.SelectedItem as string;
             this.Title = value + " Graph by dianafa";
+        }
+
+        private void CM_SaveArcSource(object sender, RoutedEventArgs e)
+        {
+            MenuItem mi = sender as MenuItem;
+            if (mi != null)
+            {
+                ContextMenu cm = mi.CommandParameter as ContextMenu;
+                if (cm != null)
+                {
+                    Ellipse source = cm.PlacementTarget as Ellipse;
+                    if (source != null)
+                    {
+                        Console.WriteLine(source.Name);
+                        source.Width = 150;
+                        IEnumerable<Ellipse> collection = canvas.Children.OfType<Ellipse>();
+                        foreach (Ellipse every_ellipse in collection) 
+                        {
+                            Console.WriteLine();
+                            MenuItem elem = (MenuItem)every_ellipse.ContextMenu.Items.GetItemAt(0);
+                            elem.IsEnabled = false;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void CM_SaveArcDestination(object sender, RoutedEventArgs e)
+        {
+            MenuItem mi = sender as MenuItem;
+            if (mi != null)
+            {
+                ContextMenu cm = mi.CommandParameter as ContextMenu;
+                if (cm != null)
+                {
+                    Ellipse destination = cm.PlacementTarget as Ellipse;
+                    if (destination != null)
+                    {
+                        Console.WriteLine(destination.Name);
+                        IEnumerable<Ellipse> collection = canvas.Children.OfType<Ellipse>();
+                        Ellipse source = collection.First(x => x.Width == 150);
+
+                        Console.WriteLine("from: "+ source.Name +"to" + destination.Name);
+                        foreach (Ellipse every_ellipse in collection)
+                        {
+                            Console.WriteLine();
+                            MenuItem elem = (MenuItem)every_ellipse.ContextMenu.Items.GetItemAt(0);
+                            elem.IsEnabled = true;
+                        }
+                    }
+                }
+            }
         }
     }
 }

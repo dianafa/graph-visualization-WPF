@@ -24,6 +24,23 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
+        <ContextMenu x:Key="cmNode">
+            <MenuItem
+                Name= "menuItem_source"
+                Header="NEW ARC - source"
+                Click="CM_SaveArcSource"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}">
+            </MenuItem>
+            <MenuItem
+                Name="menuItem_destination"
+                Header="NEW ARC - destination"
+                Click="CM_SaveArcDestination"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent}">
+            </MenuItem>
+            <Separator />
+            <MenuItem Header="Menu item 3" />
+        </ContextMenu>
     </Window.Resources>
     
     <Grid Height="700" Width="800" Name="MainGrid" MouseUp="MainGrid_MouseUp" Background="Coral">
@@ -42,9 +59,6 @@
             <RowDefinition Height="166*" />
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
-        <Ellipse>
-        </Ellipse>
 
         <Label Grid.Column="2" Grid.Row="0" Margin="10,5,0,0">
             Select node type: 

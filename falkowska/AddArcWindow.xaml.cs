@@ -32,15 +32,15 @@ namespace falkowska
         {
             if (lbSrcNode.SelectedItem == lbDestNode.SelectedItem)
             {
-                MessageBox.Show("Cannot add arc from " + lbSrcNode.SelectedItem.ToString() + " to " + lbDestNode.SelectedItem.ToString() + "!");
+                Console.WriteLine("Cannot add arc from " + lbSrcNode.SelectedItem.ToString() + " to " + lbDestNode.SelectedItem.ToString() + "!");
             }
             else
             {
                 KeyValuePair<string, Node<City>> kwp1 = (KeyValuePair<string, Node<City>>)lbSrcNode.SelectedItem;
                 KeyValuePair<string, Node<City>> kwp2 = (KeyValuePair<string, Node<City>>)lbDestNode.SelectedItem;
-                MessageBox.Show("Dodaje luk z " + kwp1.Key + " do " + kwp2.Key);
+                Console.WriteLine("Dodaje luk z " + kwp1.Key + " do " + kwp2.Key);
                 string result = kwp1.Value.AddArc(kwp2.Value);
-                MessageBox.Show(result);
+                Console.WriteLine("result czyli destination: "+ result);
             }
         }
 
