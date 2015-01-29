@@ -39,6 +39,10 @@ namespace GraphLibrary
             return true;
         }
 
+        public List<Node<T>> GetNeighbours(Node<T> node)
+        {
+            return node.arcsOut;
+        }
         //Implementation of IEnumberable interface
         #region IEnumerable<Node<T>> Members
  
@@ -62,11 +66,6 @@ namespace GraphLibrary
             return this.GetEnumerator();
         }
         #endregion
-
-        public List<Node<T>> GetNeighbours(Node<T> node) 
-        {
-            return node.arcsOut;
-        }
 
         public IEnumerable<Node<T>> DFS(Node<T> start)
         {
