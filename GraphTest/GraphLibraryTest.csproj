@@ -50,13 +50,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="GraphTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GraphLibrary\GraphLibrary.csproj">
       <Project>{79aafa4d-8005-4a1a-b573-55bf1fdbae11}</Project>
       <Name>GraphLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Graph\CityGraph.csproj">
+      <Project>{eca7ec1e-b982-4b4c-b197-970d0872e788}</Project>
+      <Name>CityGraph</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

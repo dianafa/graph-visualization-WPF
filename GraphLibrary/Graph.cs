@@ -26,7 +26,7 @@ namespace GraphLibrary
 
         public bool AddNode(Node<T> node)
         {
-            //if (node.name == null) obsluz w WPF
+            if (node.name == null) return false;
             if (nodes.ContainsKey(node.name)) {
                 return false;
             };
