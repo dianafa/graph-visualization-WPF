@@ -16,14 +16,14 @@ namespace GraphLibrary
         public string name;
         public Type type;
         public Dictionary<string, string> properties;
-        public LinkedList<Node<T>> arcsOut;
+        public List<Node<T>> arcsOut;
 
         public Node (string name, Type type, Object obj)
         {
             this.name = name;
             this.type = type;
             this.properties = setProperties(obj);
-            arcsOut = new LinkedList<Node<T>>();
+            arcsOut = new List<Node<T>>();
         }
 
         public Node()
@@ -31,7 +31,7 @@ namespace GraphLibrary
             this.name = null;
             this.type = null;
             this.properties = null;
-            arcsOut = new LinkedList<Node<T>>();
+            arcsOut = new List<Node<T>>();
         }
 
         public Dictionary<string, string> setProperties(Object obj)
@@ -57,7 +57,7 @@ namespace GraphLibrary
         {
             try
             {
-                arcsOut.AddLast(destination);
+                arcsOut.Add(destination);
                 Console.WriteLine("Luki z : ", this.name);
                 foreach (Node<T> k in arcsOut) {
                     Console.WriteLine("k: ", k.name);

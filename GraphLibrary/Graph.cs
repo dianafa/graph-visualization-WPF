@@ -59,7 +59,7 @@ namespace GraphLibrary
         }
         #endregion
 
-        public LinkedList<Node<T>> GetNeighbours(Node<T> node) 
+        public List<Node<T>> GetNeighbours(Node<T> node) 
         {
             return node.arcsOut;
         }

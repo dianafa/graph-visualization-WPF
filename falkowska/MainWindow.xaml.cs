@@ -29,13 +29,13 @@ namespace falkowska
             this.DataContext = this;
             visualized_nodes = new List<NodeVisualization<City>>();
             cityGraph = new Graph<City>();
+
             ///**** add node ****
             cityGraph["Poznan"] = new City("Poznan", "wielkopolskie", "547tys.");
             AddNode_Canvas("Poznan");
             cityGraph.AddNode(new City("Krakow", "wielkopolskie", "647tys."));
             AddNode_Canvas("Krakow");
 
-            //Resources["listaNodow"] = cityGraph.nodes;
             lbNodes.ItemsSource = cityGraph.nodes;
         }
 
