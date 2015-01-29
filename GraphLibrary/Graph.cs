@@ -20,7 +20,7 @@ namespace GraphLibrary
             }
             set
             {
-                nodes[index] = new Node<T> { name = value.name, type = value.type};
+                nodes[index] = new Node<T> (value.name, value.type, value);
             }
         }
 
@@ -30,9 +30,7 @@ namespace GraphLibrary
             if (nodes.ContainsKey(node.name)) {
                 return false;
             };
-            Node<T> graphNode = new Node<T>();
-            graphNode.name = node.name;
-            graphNode.type = node.GetType();
+            Node<T> graphNode = new Node<T> (node.name,node.GetType(), node);
             nodes.Add(node.name, graphNode);
             return true;
         }

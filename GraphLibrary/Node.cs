@@ -15,7 +15,43 @@ namespace GraphLibrary
     {
         public string name;
         public Type type;
-        public LinkedList<Node<T>> arcsOut = new LinkedList<Node<T>>();
+        public Dictionary<string, string> properties;
+        public LinkedList<Node<T>> arcsOut;
+
+        public Node (string name, Type type, Object obj)
+        {
+            this.name = name;
+            this.type = type;
+            this.properties = setProperties(obj);
+            arcsOut = new LinkedList<Node<T>>();
+        }
+
+        public Node()
+        {
+            this.name = null;
+            this.type = null;
+            this.properties = null;
+            arcsOut = new LinkedList<Node<T>>();
+        }
+
+        public Dictionary<string, string> setProperties(Object obj)
+        {
+            Type type = obj.GetType();
+            Console.WriteLine("TYPE: ", type);
+
+            Dictionary<string, string> result = new Dictionary<string,string>();
+
+            foreach (var f in type.GetFields().Where(f => f.IsPublic)) {
+                if ((f.Name != "type") && (f.Name != "properties") && (f.Name != "arcsOut"))
+                {
+                    Console.WriteLine(
+                    String.Format("Name: {0} Value: {1}", f.Name, f.GetValue(obj)));
+                    result.Add(f.Name, f.GetValue(obj).ToString());
+                }
+            }
+
+            return result;
+        }
 
         public string AddArc(Node<T> destination)
         {

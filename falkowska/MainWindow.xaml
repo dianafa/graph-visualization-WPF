@@ -9,7 +9,7 @@
                     <Label FontWeight="Bold" FontSize="12" Content="{Binding Path=Key}" DockPanel.Dock="Top"/>
                     <StackPanel Orientation="Horizontal">
                         <Label>Population:</Label>
-                        <Label Content="{Binding Path=Value}" />
+                        <Label Content="{Binding Path=Key}" />
                         <Label>County:</Label>
                         <Label Content="{Binding Path=Value.name}" />
                     </StackPanel>
@@ -95,12 +95,6 @@
         <Canvas AllowDrop="True" Name="canvas" Grid.Column="2" Grid.Row="1" Grid.RowSpan="5" Background="Bisque" Drop="canvas_Drop" DragEnter="canvas_DragEnter">
             <Canvas.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Command="Cut">
-                    </MenuItem>
-                    <MenuItem Command="Copy">
-                    </MenuItem>
-                    <MenuItem Command="Paste">
-                    </MenuItem>
                     <MenuItem Header="Add new node" Click="AddNode_Click">
                     </MenuItem>
                     <MenuItem Header="Menu item 2" />

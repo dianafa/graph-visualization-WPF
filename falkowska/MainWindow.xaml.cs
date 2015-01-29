@@ -35,6 +35,7 @@ namespace falkowska
             cityGraph.AddNode(new City("Krakow", "wielkopolskie", "647tys."));
             AddNode_Canvas("Krakow");
 
+            //Resources["listaNodow"] = cityGraph.nodes;
             lbNodes.ItemsSource = cityGraph.nodes;
         }
 
@@ -99,6 +100,8 @@ namespace falkowska
             string name = ((Ellipse)e.Source).Name;
             Node<City> node = cityGraph[name];
             Console.WriteLine("City: " + node.name + " Typ: " + node.GetType());
+
+            Console.WriteLine("County: " + node.properties["county"] + " population: " + node.properties["population"]);
         }
 
         private void EditNode_Click(object sender, RoutedEventArgs e)
