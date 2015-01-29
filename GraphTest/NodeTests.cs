@@ -22,19 +22,13 @@ namespace GraphLibraryTest
         [TestMethod]
         public void TestAddArc_correct()
         {
-            Node<City> node1 = new City("Bydgoszcz", "kuj-pom", "300tys.");
-            testGraph.AddNode(node1);
-
-            testNode.AddArc(node1);
+            testGraph["Bydgoszcz"] = new City("Bydgoszcz", "kuj-pom", "300tys.");
+            testNode.AddArc(testGraph["Bydgoszcz"]);
 
             Assert.AreEqual(1, testNode.arcsOut.Count, "arcsOut list didn't change");
-            Assert.AreEqual(node1, testNode.arcsOut[0]);
-            Assert.AreEqual(node1.name, testNode.arcsOut[0].name, "arcsOut[0].name is not the added node.name");
-            Console.WriteLine("node1.properties" + node1.properties);
-            Console.WriteLine("node1.name" + node1.name);
-            //Console.WriteLine("testNode.arcsOut[0].properties[county" + testNode.arcsOut[0].properties["county"]);
-            //Assert.AreEqual(node1.properties["county"], testNode.arcsOut[0].properties["county"], "arcsOut[0].county is not the added nodecounty");
-
+            Assert.AreEqual(testGraph["Bydgoszcz"], testNode.arcsOut[0]);
+            Assert.AreEqual(testGraph["Bydgoszcz"].name, testNode.arcsOut[0].name, "arcsOut[0].name is not the added node.name");
+            Assert.AreEqual(testGraph["Bydgoszcz"].properties["county"], testNode.arcsOut[0].properties["county"], "arcsOut[0].county is not the added nodecounty");
         }
     }
 }

@@ -46,7 +46,7 @@ namespace falkowska
 
         private void AddNode_Click(object sender, RoutedEventArgs e)
         {
-            string name = (NameInput.Text.Trim() == null) ? NameInput.Text : randomNodeName();
+            string name = (NameInput.Text.Trim() == "") ? randomNodeName() : NameInput.Text;
             Node<City> new_node = new City(name, CountyInput.Text, PopulationInput.Text);
             bool success = cityGraph.AddNode(new_node);
             if (success)
@@ -196,20 +196,6 @@ namespace falkowska
                     }
                 }
             }
-        }
-
-        private void canvas_DragEnter(object sender, DragEventArgs e)
-        {
-            /*if (e.Data.GetDataPresent(DataFormats.StringFormat))
-            {
-                Console.WriteLine("jest strib");
-                //e.Effects = DragDropEffects.Copy;
-            }
-            else
-            {
-                Console.WriteLine("nie ma pola string");
-                e.Effects = DragDropEffects.None;
-            }*/
         }
 
         private string randomNodeName()

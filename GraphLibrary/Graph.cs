@@ -30,8 +30,12 @@ namespace GraphLibrary
             if (nodes.ContainsKey(node.name)) {
                 return false;
             };
-            Node<T> graphNode = new Node<T> (node.name,node.GetType(), node);
-            nodes.Add(node.name, graphNode);
+            nodes[node.name] = new Node<T>(node.name, node.type, node);
+            foreach (KeyValuePair<string, Node<T>> n in nodes)
+            {
+                Console.WriteLine("n: " + n);
+                Console.WriteLine("n.county" + n.Value.properties["county"]);
+            }
             return true;
         }
 
