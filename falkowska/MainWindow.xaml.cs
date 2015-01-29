@@ -229,22 +229,14 @@ namespace falkowska
             data.Add("Chair");
             data.Add("City");
 
-            // ... Get the ComboBox reference.
             var comboBox = sender as ComboBox;
-
-            // ... Assign the ItemsSource to the List.
             comboBox.ItemsSource = data;
-
-            // ... Make the first item selected.
             comboBox.SelectedIndex = 0;
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // ... Get the ComboBox.
             var comboBox = sender as ComboBox;
-
-            // ... Set SelectedItem as Window Title.
             string value = comboBox.SelectedItem as string;
             this.Title = value + " Graph by dianafa";
         }
@@ -261,7 +253,7 @@ namespace falkowska
                     if (source != null)
                     {
                         Console.WriteLine(source.Name);
-                        source.Width = 150;
+                        source.Width = 100;
                         IEnumerable<Ellipse> collection = canvas.Children.OfType<Ellipse>();
                         foreach (Ellipse every_ellipse in collection) 
                         {
@@ -287,15 +279,21 @@ namespace falkowska
                     {
                         Console.WriteLine(destination.Name);
                         IEnumerable<Ellipse> collection = canvas.Children.OfType<Ellipse>();
-                        Ellipse source = collection.First(x => x.Width == 150);
+                        Ellipse source = collection.First(x => x.Width == 100);
 
-                        Console.WriteLine("from: "+ source.Name +"to" + destination.Name);
+                        Console.WriteLine("Add arc from: "+ source.Name +" to " + destination.Name);
+                        source.Width = 50;
                         foreach (Ellipse every_ellipse in collection)
                         {
                             Console.WriteLine();
                             MenuItem elem = (MenuItem)every_ellipse.ContextMenu.Items.GetItemAt(0);
                             elem.IsEnabled = true;
                         }
+
+                        Node<City>  vn_src = cityGraph[source.Name];
+                        Node<City>  vn_dest = cityGraph[destination.Name];
+                        vn_src.AddArc(vn_dest);
+
                     }
                 }
             }
