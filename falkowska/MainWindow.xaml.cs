@@ -134,8 +134,11 @@ namespace falkowska
             if (radioDFS.IsChecked == true)
             {
                 Console.WriteLine("Uruchamiasz algorytm: " + radioDFS.Content);
+                //Console.WriteLine("selected:", lbNodes.SelectedItem.ToString());
+                // KeyValuePair<string, Node<City>> start_node = (KeyValuePair<string, Node<City>>)lbNodes.SelectedItem;
                 IEnumerable<Node<City>> wynik = cityGraph.DFS(cityGraph.nodes["Poznan"]);
-                Console.WriteLine("Wynik: " + wynik);
+                Console.WriteLine("Ostatni: " + wynik.Last().name);
+                Console.WriteLine("Pierwszy: " + wynik.First().name);
                 return;
             }
             if (radioBFS.IsChecked == true)
